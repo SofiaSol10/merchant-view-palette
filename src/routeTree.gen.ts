@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComercianteRouteImport } from './routes/comerciante'
+import { Route as ConectarRouteImport } from './routes/conectar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const ComercianteRoute = ComercianteRouteImport.update({
   path: '/comerciante',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConectarRoute = ConectarRouteImport.update({
+  id: '/conectar',
+  path: '/conectar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/comerciante': typeof ComercianteRoute
+  '/conectar': typeof ConectarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/comerciante': typeof ComercianteRoute
+  '/conectar': typeof ConectarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/comerciante': typeof ComercianteRoute
+  '/conectar': typeof ConectarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/comerciante'
+  fullPaths: '/' | '/comerciante' | '/conectar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/comerciante'
-  id: '__root__' | '/' | '/comerciante'
+  to: '/' | '/comerciante' | '/conectar'
+  id: '__root__' | '/' | '/comerciante' | '/conectar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComercianteRoute: typeof ComercianteRoute
+  ConectarRoute: typeof ConectarRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComercianteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/conectar': {
+      id: '/conectar'
+      path: '/conectar'
+      fullPath: '/conectar'
+      preLoaderRoute: typeof ConectarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComercianteRoute: ComercianteRoute,
+  ConectarRoute: ConectarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

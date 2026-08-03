@@ -9,7 +9,7 @@ type Rol = "comerciante" | "consumidor";
 
 export const Route = createFileRoute("/conectar")({
   validateSearch: (search: Record<string, unknown>): { rol: Rol } => ({
-    rol: search.rol === "consumidor" ? "consumidor" : "comerciante",
+    rol: search["rol"] === "consumidor" ? "consumidor" : "comerciante",
   }),
   head: () => ({
     meta: [
