@@ -24,6 +24,7 @@
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-soft: var(--brand-soft);
+  --color-brand-strong: var(--brand-strong);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
   --color-success: var(--success);

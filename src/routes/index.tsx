@@ -147,7 +147,7 @@ function MerchantDashboard() {
                 Tasa de recompensa
               </h2>
               <p className="mt-1 text-muted-foreground">
-                Entregas <span className="font-semibold text-brand">10%</span> del monto de cada
+                Entregas <span className="font-semibold text-brand-strong">10%</span> del monto de cada
                 venta en MichiCoins.
               </p>
             </section>
@@ -162,7 +162,7 @@ function MerchantDashboard() {
                 id="como-funciona-title"
                 className="font-display flex items-center gap-2 text-sm font-bold"
               >
-                <Info className="size-4 shrink-0 text-brand" aria-hidden="true" />
+                <Info className="size-4 shrink-0 text-brand-strong" aria-hidden="true" />
                 ¿Cómo funcionan los MichiCoins?
               </h2>
               <div className="mt-4 grid gap-5 sm:grid-cols-2">
@@ -255,7 +255,7 @@ function MerchantDashboard() {
                 className="space-y-4 border-t border-border p-5 sm:p-6 md:border-l md:border-t-0"
                 onSubmit={(e) => e.preventDefault()}
               >
-                <div className="flex items-center gap-2 text-brand">
+                <div className="flex items-center gap-2 text-brand-strong">
                   <QrCode className="size-5 shrink-0" aria-hidden="true" />
                   <h2 id="cobro-title" className="font-display text-lg font-bold">
                     Cobrar con MichiCoins
@@ -299,7 +299,7 @@ function MerchantDashboard() {
                   className="flex items-center justify-between gap-3 rounded-lg bg-brand-soft px-4 py-3 text-sm"
                 >
                   <span className="text-muted-foreground">Equivale a</span>
-                  <span className="font-display font-bold text-brand">S/ {solesEquivalent}</span>
+                  <span className="font-display font-bold text-brand-strong">S/ {solesEquivalent}</span>
                 </p>
 
                 <Button type="submit" className="min-h-11 w-full">
