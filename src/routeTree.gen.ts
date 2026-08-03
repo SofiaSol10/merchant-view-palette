@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AvisoRouteImport } from './routes/aviso'
+import { Route as ComercianteRouteImport } from './routes/comerciante'
+import { Route as ConectarRouteImport } from './routes/conectar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvisoRoute = AvisoRouteImport.update({
+  id: '/aviso',
+  path: '/aviso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComercianteRoute = ComercianteRouteImport.update({
+  id: '/comerciante',
+  path: '/comerciante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConectarRoute = ConectarRouteImport.update({
+  id: '/conectar',
+  path: '/conectar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso': typeof AvisoRoute
+  '/comerciante': typeof ComercianteRoute
+  '/conectar': typeof ConectarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso': typeof AvisoRoute
+  '/comerciante': typeof ComercianteRoute
+  '/conectar': typeof ConectarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso': typeof AvisoRoute
+  '/comerciante': typeof ComercianteRoute
+  '/conectar': typeof ConectarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/aviso' | '/comerciante' | '/conectar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/aviso' | '/comerciante' | '/conectar'
+  id: '__root__' | '/' | '/aviso' | '/comerciante' | '/conectar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoRoute: typeof AvisoRoute
+  ComercianteRoute: typeof ComercianteRoute
+  ConectarRoute: typeof ConectarRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aviso': {
+      id: '/aviso'
+      path: '/aviso'
+      fullPath: '/aviso'
+      preLoaderRoute: typeof AvisoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/comerciante': {
+      id: '/comerciante'
+      path: '/comerciante'
+      fullPath: '/comerciante'
+      preLoaderRoute: typeof ComercianteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conectar': {
+      id: '/conectar'
+      path: '/conectar'
+      fullPath: '/conectar'
+      preLoaderRoute: typeof ConectarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoRoute: AvisoRoute,
+  ComercianteRoute: ComercianteRoute,
+  ConectarRoute: ConectarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
