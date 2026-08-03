@@ -26,7 +26,7 @@ export const Route = createFileRoute("/conectar")({
       },
     ],
   }),
-  component: ConnectWallet;
+  component: ConnectWallet,
 });
 
 function ConnectWallet() {
